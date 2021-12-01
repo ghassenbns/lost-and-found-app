@@ -1,0 +1,7 @@
+{
+  "name": "lost-and-found",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
