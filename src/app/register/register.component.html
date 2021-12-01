@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar position="ion-text-center" color="warning">
+    <ion-title>Inscrivez - vous ! </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img [src]="['./assets/logo.png']"></ion-img>
+  <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input name="email" type="email" email ngModel required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nom d'utilisateur</ion-label>
+      <ion-input name="username" type="text" ngModel required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input name="password" type="password" ngModel required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ré-entrez votre mot de passe</ion-label>
+      <ion-input name="verif" type="password" ngModel required></ion-input>
+    </ion-item>
+
+    <ion-button
+      class="ion-margin-top"
+      type="submit"
+      expand="block"
+      color="success"
+    >
+      Valider
+    </ion-button>
+    <ion-button
+      class="ion-margin-top"
+      type="button"
+      expand="block"
+      color="warning"
+      (click)="onReturn()"
+    >
+      Retour
+    </ion-button>
+  </form>
+</ion-content>
