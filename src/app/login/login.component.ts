@@ -1,3 +1,4 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,7 +22,9 @@ export class LoginComponent implements OnInit {
       const user = new User(loginForm.value.email, loginForm.value.password);
       this.userService
         .login(user)
-        .subscribe((response) => console.log(response));
+        .subscribe((response) =>
+          localStorage.setItem('user', JSON.stringify(response))
+        );
     }
   }
 }
