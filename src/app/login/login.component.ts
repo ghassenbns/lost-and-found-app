@@ -18,13 +18,17 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['register']);
   }
   onLogin(loginForm: NgForm) {
-    if (!loginForm.valid) {
+    if (loginForm.valid) {
       const user = new User(loginForm.value.email, loginForm.value.password);
-      this.userService
-        .login(user)
-        .subscribe((response) =>
-          localStorage.setItem('user', JSON.stringify(response))
-        );
+      this.userService.login(user).subscribe(
+        (response) => localStorage.setItem('user', JSON.stringify(response)),
+        (error) => {
+          alert('Email or password are incorrect');
+        },
+        () => {
+          this.router.navigate(['home']);
+        }
+      );
     }
   }
 }

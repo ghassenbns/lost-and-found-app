@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from './user.model';
+import { User, UserRegister } from './user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +11,12 @@ export class UserAuthService {
   login(user: User) {
     return this.http.post(
       'http://localhost/lostandfoundbackend/api/user/login.php',
+      user
+    );
+  }
+  register(user: UserRegister) {
+    return this.http.post(
+      'http://localhost/lostandfoundbackend/api/user/create.php',
       user
     );
   }
