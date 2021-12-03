@@ -2,6 +2,9 @@ import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { ErrorService } from '../shared/error.service';
+import { ToastService } from '../shared/toast.service';
 import { UserAuthService } from '../shared/user-auth.service';
 import { User } from '../shared/user.model';
 
@@ -11,7 +14,12 @@ import { User } from '../shared/user.model';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private userService: UserAuthService) {}
+  constructor(
+    private toastService: ToastService,
+    private router: Router,
+    private userService: UserAuthService,
+    private errorService: ErrorService
+  ) {}
 
   ngOnInit() {}
   onRegister() {
@@ -23,7 +31,10 @@ export class LoginComponent implements OnInit {
       this.userService.login(user).subscribe(
         (response) => localStorage.setItem('user', JSON.stringify(response)),
         (error) => {
-          alert('Email or password are incorrect');
+          this.toastService.openToast(
+            this.errorService.loginErrors(error),
+            'danger'
+          );
         },
         () => {
           this.router.navigate(['home']);
