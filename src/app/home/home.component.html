@@ -1,3 +1,29 @@
-<p>
-  home works!
-</p>
+<ion-header>
+  <ion-toolbar position="ion-text-center" color="warning">
+    <ion-title>Mes publications </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <h1>Aucun animal n'a été déclaré dernièrement ...</h1>
+  </div>
+</ion-content>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="publications">
+      <ion-icon name="albums-outline"></ion-icon>
+      <ion-label>Publications</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="signaler">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Signaler</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="onLogout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Déconnexion</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

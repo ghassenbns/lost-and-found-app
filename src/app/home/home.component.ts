@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  retrievedUser: string = null;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.retrievedUser = JSON.parse(localStorage.getItem('user'));
+    console.log('retrievedObject: ', this.retrievedUser);
+  }
+  onLogout() {
+    localStorage.clear();
+    this.router.navigate(['login']);
+  }
 }

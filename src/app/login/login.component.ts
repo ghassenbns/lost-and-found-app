@@ -1,12 +1,10 @@
-import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 import { ErrorService } from '../shared/error.service';
 import { ToastService } from '../shared/toast.service';
 import { UserAuthService } from '../shared/user-auth.service';
-import { User } from '../shared/user.model';
+import { UserLogin } from '../shared/user.model';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +25,10 @@ export class LoginComponent implements OnInit {
   }
   onLogin(loginForm: NgForm) {
     if (loginForm.valid) {
-      const user = new User(loginForm.value.email, loginForm.value.password);
+      const user = new UserLogin(
+        loginForm.value.email,
+        loginForm.value.password
+      );
       this.userService.login(user).subscribe(
         (response) => localStorage.setItem('user', JSON.stringify(response)),
         (error) => {
