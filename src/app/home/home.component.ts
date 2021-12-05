@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../shared/user-auth.service';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  retrievedUser: string = null;
-
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private userAuthService: UserAuthService
+  ) {}
 
   ngOnInit() {
-    this.retrievedUser = JSON.parse(localStorage.getItem('user'));
-    console.log('retrievedObject: ', this.retrievedUser);
+    this.userAuthService.retrievedUser = JSON.parse(
+      localStorage.getItem('user')
+    );
   }
   onLogout() {
     localStorage.clear();

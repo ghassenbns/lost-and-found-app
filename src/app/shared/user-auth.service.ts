@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserLogin, UserRegister } from './user.model';
+import { User, UserLogin, UserRegister } from './user.model';
+import { Post } from './post.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserAuthService {
+  retrievedUser: User = null;
   constructor(private http: HttpClient) {}
 
   login(user: UserLogin) {
@@ -18,6 +20,13 @@ export class UserAuthService {
     return this.http.post(
       'http://localhost/lostandfoundbackend/api/user/create.php',
       user
+    );
+  }
+  signaler(post: any) {
+    console.log(post);
+    return this.http.post(
+      'http://localhost/lostandfoundbackend/api/post/create.php',
+      post
     );
   }
 }

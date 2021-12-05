@@ -1,3 +1,5 @@
+import { Post } from './post.model';
+
 export class UserLogin {
   public email: string;
   public password: string;
@@ -22,6 +24,7 @@ export class User {
   public password: string;
   public username: string;
   public id: number;
+  public posts: Post[];
   constructor(email: string, password: string, username: string, id: number) {
     this.email = email;
     this.password = password;

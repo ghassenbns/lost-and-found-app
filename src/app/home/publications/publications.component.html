@@ -1,3 +1,7 @@
-<p>
-  publications works!
-</p>
+<ion-content>
+  <app-publication-item
+    *ngFor="let post of authPosts; let i = index"
+    [post]="post"
+    [index]="i"
+  ></app-publication-item>
+</ion-content>

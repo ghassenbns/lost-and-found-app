@@ -28,10 +28,12 @@ const routes: Routes = [
       {
         path: 'publications',
         component: PublicationsComponent,
+        pathMatch: 'full',
       },
       {
         path: 'signaler',
         component: SignalerComponent,
+        pathMatch: 'full',
       },
     ],
   },
