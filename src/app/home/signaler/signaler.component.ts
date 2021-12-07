@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastService } from 'src/app/shared/toast.service';
 import { UserAuthService } from 'src/app/shared/user-auth.service';
@@ -10,6 +10,30 @@ import { UserAuthService } from 'src/app/shared/user-auth.service';
   styleUrls: ['./signaler.component.scss'],
 })
 export class SignalerComponent implements OnInit {
+  listGouvernorat = [
+    'Ariana',
+    'Béja',
+    'Ben Arous',
+    'Bizerte',
+    'Gabes',
+    'Gafsa',
+    'Jendouba',
+    'Kairouan',
+    'Kasserine',
+    'Mahdia',
+    'Manouba',
+    'Médenine',
+    'Monastir',
+    'Nabeul',
+    'Sfax',
+    'Sidi Bouzid',
+    'Siliana',
+    'Sousse',
+    'Tataouine',
+    'Tozeur',
+    'Tunis',
+    'Zaghouan',
+  ];
   signalForm: FormGroup;
   constructor(
     private userAuthService: UserAuthService,
