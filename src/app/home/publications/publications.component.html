@@ -1,4 +1,25 @@
-<ion-content>
+<br />
+<br />
+
+<ion-content
+  ><p>
+    <ion-chip>
+      <ion-icon color="primary" name="checkmark-circle"></ion-icon>
+      <ion-label>Les plus proches</ion-label>
+    </ion-chip>
+    <ion-chip>
+      <ion-icon color="secondary" name="checkmark-circle"></ion-icon>
+      <ion-label>Les plus récentes</ion-label>
+    </ion-chip>
+    <ion-chip>
+      <ion-icon color="danger" name="checkmark-circle"></ion-icon>
+      <ion-label>Perdu</ion-label>
+    </ion-chip>
+    <ion-chip>
+      <ion-icon color="success" name="checkmark-circle"></ion-icon>
+      <ion-label>Trouvé</ion-label>
+    </ion-chip>
+  </p>
   <app-publication-item
     *ngFor="let post of authPosts; let i = index"
     [post]="post"

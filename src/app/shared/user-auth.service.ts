@@ -29,4 +29,9 @@ export class UserAuthService {
       post
     );
   }
+  getAllPosts() {
+    return this.http.get(
+      'http://localhost/lostandfoundbackend/api/post/read.php'
+    );
+  }
 }

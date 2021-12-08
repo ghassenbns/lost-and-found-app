@@ -9,10 +9,12 @@ import { UserAuthService } from 'src/app/shared/user-auth.service';
 })
 export class PublicationsComponent implements OnInit {
   authPosts: Post[] = null;
+  allPosts: Post[] = null;
   constructor(private userAuthService: UserAuthService) {}
 
   ngOnInit() {
     this.authPosts = this.userAuthService.retrievedUser.posts;
-    console.log(this.authPosts);
+    this.allPosts = JSON.parse(localStorage.getItem('posts'));
+    console.log(this.allPosts);
   }
 }

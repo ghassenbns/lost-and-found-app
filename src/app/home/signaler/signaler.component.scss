@@ -10,3 +10,9 @@ ion-datetime.ng-touched.ng-invalid {
 ion-select-option.ng-touched.ng-invalid {
   border-bottom: 2px solid red;
 }
+ion-label {
+  color: white !important;
+}
+form {
+  margin-top: 50px !important;
+}
