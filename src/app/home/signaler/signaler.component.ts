@@ -70,6 +70,7 @@ export class SignalerComponent implements OnInit {
     const imagePath = '';
     const location = '';
     const iduser = this.userAuthService.retrievedUser.id;
+    const phoneNumber = this.userAuthService.retrievedUser.phoneNumber;
     this.signalForm = new FormGroup({
       title: new FormControl(title),
       type: new FormControl(type),
@@ -78,6 +79,7 @@ export class SignalerComponent implements OnInit {
       imagePath: new FormControl(imagePath),
       id_user: new FormControl(iduser),
       location: new FormControl(location),
+      phoneNumber: new FormControl(phoneNumber),
     });
   }
 }

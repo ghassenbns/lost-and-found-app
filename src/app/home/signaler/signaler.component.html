@@ -41,12 +41,7 @@
 
   <ion-item>
     <ion-label>Où ?</ion-label>
-    <ion-select
-      interface="popover"
-      placeholder="Gouvernorat"
-      formControlName="location"
-      required
-    >
+    <ion-select placeholder="Gouvernorat" formControlName="location" required>
       <ion-select-option *ngFor="let city of listGouvernorat" [value]="city">{{
         city
       }}</ion-select-option>

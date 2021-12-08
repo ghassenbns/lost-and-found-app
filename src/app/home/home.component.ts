@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     this.userAuthService.retrievedUser = JSON.parse(
       localStorage.getItem('user')
     );
+    console.log(this.userAuthService.retrievedUser);
   }
   onLogout() {
     localStorage.clear();

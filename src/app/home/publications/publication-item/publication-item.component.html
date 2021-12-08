@@ -1,10 +1,14 @@
 <ion-card>
   <ion-card-header>
+    <p>{{ post.type }}</p>
     <ion-card-subtitle>{{ post.location }}</ion-card-subtitle>
+
     <ion-card-title>{{ post.title }}</ion-card-title>
   </ion-card-header>
 
-  <ion-card-content>
-    {{ post.description }}
-  </ion-card-content>
+  <ion-card-content> {{ post.description }} </ion-card-content>
+  <ion-item>
+    <ion-icon name="calendar-outline"></ion-icon>
+    <p>{{ post.date }}</p></ion-item
+  >
 </ion-card>
