@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastService } from '../shared/toast.service';
 import { UserAuthService } from '../shared/user-auth.service';
-import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-home',

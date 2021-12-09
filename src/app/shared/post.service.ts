@@ -24,8 +24,18 @@ export class PostService {
       this.filteredPosts.next(
         this.allPosts.sort(
           (a, b) =>
-            this.getTime(new Date(a.date)) - this.getTime(new Date(b.date))
+            this.getTime(new Date(b.date)) - this.getTime(new Date(a.date))
         )
+      );
+    }
+    if (filterType === 'Trouvé') {
+      this.filteredPosts.next(
+        this.allPosts.filter((post) => post.type === 'Trouvé')
+      );
+    }
+    if (filterType === 'Perdu') {
+      this.filteredPosts.next(
+        this.allPosts.filter((post) => post.type === 'Perdu')
       );
     }
   }

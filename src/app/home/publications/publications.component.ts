@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/shared/post.model';
 import { PostService } from 'src/app/shared/post.service';
-import { UserAuthService } from 'src/app/shared/user-auth.service';
 
 @Component({
   selector: 'app-publications',
@@ -10,6 +9,7 @@ import { UserAuthService } from 'src/app/shared/user-auth.service';
 })
 export class PublicationsComponent implements OnInit {
   allPosts: Post[];
+  activatedFilter: string = null;
   constructor(private postService: PostService) {}
 
   ngOnInit() {
@@ -19,6 +19,7 @@ export class PublicationsComponent implements OnInit {
   }
   onFilter(type: string) {
     console.log('filtered');
+    this.activatedFilter = type;
     this.postService.onFilter(type);
   }
 }

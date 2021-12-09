@@ -23,6 +23,22 @@
       <ion-label position="floating">Ré-entrez votre mot de passe</ion-label>
       <ion-input name="verif" type="password" ngModel required></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Entrez votre emplacement</ion-label>
+      <ion-select placeholder="Gouvernorat" name="location" ngModel required>
+        <ion-select-option
+          *ngFor="let city of listGouvernorat"
+          [value]="city"
+          >{{ city }}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"
+        >Entrez votre numéro de téléphone</ion-label
+      >
+      <ion-input name="phoneNumber" type="number" ngModel required></ion-input>
+    </ion-item>
 
     <ion-button
       class="ion-margin-top"

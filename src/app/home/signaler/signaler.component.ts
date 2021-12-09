@@ -35,6 +35,7 @@ export class SignalerComponent implements OnInit {
     'Zaghouan',
   ];
   signalForm: FormGroup;
+  public imageSrc: string;
   constructor(
     private userAuthService: UserAuthService,
     private toastService: ToastService,
@@ -62,6 +63,25 @@ export class SignalerComponent implements OnInit {
       );
     }
   }
+
+  handleInputChange(e) {
+    const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    const pattern = /image-*/;
+    const reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onload = this.handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+  handleReaderLoaded(e) {
+    const reader = e.target;
+    console.log('target', e.target);
+    this.imageSrc = reader.result;
+    this.signalForm.controls.imagePath.setValue(this.imageSrc);
+  }
+
   private initForm() {
     const title = '';
     const type = 'Perdu';

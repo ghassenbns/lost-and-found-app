@@ -12,6 +12,30 @@ import { UserRegister } from '../shared/user.model';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  listGouvernorat = [
+    'Ariana',
+    'Béja',
+    'Ben Arous',
+    'Bizerte',
+    'Gabes',
+    'Gafsa',
+    'Jendouba',
+    'Kairouan',
+    'Kasserine',
+    'Mahdia',
+    'Manouba',
+    'Médenine',
+    'Monastir',
+    'Nabeul',
+    'Sfax',
+    'Sidi Bouzid',
+    'Siliana',
+    'Sousse',
+    'Tataouine',
+    'Tozeur',
+    'Tunis',
+    'Zaghouan',
+  ];
   constructor(
     private router: Router,
     private userService: UserAuthService,
@@ -28,11 +52,15 @@ export class RegisterComponent implements OnInit {
       const user = new UserRegister(
         registerForm.value.email,
         registerForm.value.password,
-        registerForm.value.username
+        registerForm.value.username,
+        registerForm.value.location,
+        registerForm.value.phoneNumber
       );
       this.userService.register(user).subscribe(
         () => this.toastService.openToast('Utilisateur crée', 'success'),
-        () => {
+        (err) => {
+          console.log(err);
+          console.log(user);
           this.toastService.openToast('Email existe déja', 'danger');
         },
         () => {

@@ -4,19 +4,35 @@
 <ion-content
   ><p>
     <ion-chip (click)="onFilter('location')">
-      <ion-icon color="primary" name="checkmark-circle"></ion-icon>
+      <ion-icon
+        *ngIf="activatedFilter === 'location'"
+        color="primary"
+        name="checkmark-circle"
+      ></ion-icon>
       <ion-label>Les plus proches</ion-label>
     </ion-chip>
     <ion-chip (click)="onFilter('date')">
-      <ion-icon color="secondary" name="checkmark-circle"></ion-icon>
+      <ion-icon
+        *ngIf="activatedFilter === 'date'"
+        color="secondary"
+        name="checkmark-circle"
+      ></ion-icon>
       <ion-label>Les plus récentes</ion-label>
     </ion-chip>
-    <ion-chip>
-      <ion-icon color="danger" name="checkmark-circle"></ion-icon>
+    <ion-chip (click)="onFilter('Perdu')">
+      <ion-icon
+        *ngIf="activatedFilter === 'Perdu'"
+        color="danger"
+        name="checkmark-circle"
+      ></ion-icon>
       <ion-label>Perdu</ion-label>
     </ion-chip>
-    <ion-chip>
-      <ion-icon color="success" name="checkmark-circle"></ion-icon>
+    <ion-chip (click)="onFilter('Trouvé')">
+      <ion-icon
+        *ngIf="activatedFilter === 'Trouvé'"
+        color="success"
+        name="checkmark-circle"
+      ></ion-icon>
       <ion-label>Trouvé</ion-label>
     </ion-chip>
   </p>
