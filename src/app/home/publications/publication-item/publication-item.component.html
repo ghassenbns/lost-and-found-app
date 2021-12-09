@@ -1,6 +1,15 @@
 <ion-card>
   <ion-card-header>
-    <p>{{ post.type }}</p>
+    <p>
+      <ion-chip color="danger" *ngIf="post.type === 'Perdu'">
+        <ion-icon color="danger" name="checkmark-circle"></ion-icon>
+        <ion-label color="white">Perdu</ion-label>
+      </ion-chip>
+      <ion-chip color="success" *ngIf="post.type === 'Trouvé'">
+        <ion-icon color="success" name="checkmark-circle"></ion-icon>
+        <ion-label color="white">Trouvé</ion-label>
+      </ion-chip>
+    </p>
     <ion-card-subtitle>A : {{ post.location }}</ion-card-subtitle>
 
     <ion-card-title>{{ post.title }}</ion-card-title>
@@ -15,6 +24,13 @@
   <ion-card-content> {{ post.description }} </ion-card-content>
   <ion-item>
     <ion-icon name="calendar-outline"></ion-icon>
-    <p>{{ post.date | date: "dd/MM/yyyy HH:mm" }}</p></ion-item
+    <p *ngIf="post.type === 'Perdu'">
+      Perdu le {{ post.date | date: "dd/MM/yyyy" }} à :
+      {{ post.date | date: "HH:mm" }}
+    </p>
+    <p *ngIf="post.type === 'Trouvé'">
+      Trouvé le {{ post.date | date: "dd/MM/yyyy" }} à :
+      {{ post.date | date: "HH:mm" }}
+    </p></ion-item
   >
 </ion-card>

@@ -1,3 +1,15 @@
 ion-card {
   background: rgba(0, 0, 0, 0.8);
 }
+ion-card-title {
+  color: white;
+}
+ion-card-subtitle {
+  color: #caf1de;
+}
+ion-card-content {
+  color: #fef8dd;
+}
+ion-card-header p {
+  margin-top: -15px;
+}
