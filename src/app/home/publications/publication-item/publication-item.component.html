@@ -9,6 +9,6 @@
   <ion-card-content> {{ post.description }} </ion-card-content>
   <ion-item>
     <ion-icon name="calendar-outline"></ion-icon>
-    <p>{{ post.date }}</p></ion-item
+    <p>{{ post.date | date: "dd/MM/yyyy" }}</p></ion-item
   >
 </ion-card>

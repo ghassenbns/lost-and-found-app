@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     );
     this.userAuthService.getAllPosts().subscribe(
       (response) => localStorage.setItem('posts', JSON.stringify(response)),
-      (error) => {
+      () => {
         this.toastService.openToast(
           'Erreur de connection au serveur',
           'danger'

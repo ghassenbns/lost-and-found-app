@@ -3,11 +3,11 @@
 
 <ion-content
   ><p>
-    <ion-chip>
+    <ion-chip (click)="onFilter('location')">
       <ion-icon color="primary" name="checkmark-circle"></ion-icon>
       <ion-label>Les plus proches</ion-label>
     </ion-chip>
-    <ion-chip>
+    <ion-chip (click)="onFilter('date')">
       <ion-icon color="secondary" name="checkmark-circle"></ion-icon>
       <ion-label>Les plus récentes</ion-label>
     </ion-chip>
@@ -21,7 +21,7 @@
     </ion-chip>
   </p>
   <app-publication-item
-    *ngFor="let post of authPosts; let i = index"
+    *ngFor="let post of allPosts; let i = index"
     [post]="post"
     [index]="i"
   ></app-publication-item>

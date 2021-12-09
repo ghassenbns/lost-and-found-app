@@ -25,18 +25,21 @@ export class User {
   public username: string;
   public id: number;
   public phoneNumber: number;
+  public location: string;
   public posts: Post[];
   constructor(
     email: string,
     password: string,
     username: string,
     id: number,
-    phoneNumber: number
+    phoneNumber: number,
+    location: string
   ) {
     this.email = email;
     this.password = password;
     this.username = username;
     this.id = id;
     this.phoneNumber = phoneNumber;
+    this.location = location;
   }
 }
