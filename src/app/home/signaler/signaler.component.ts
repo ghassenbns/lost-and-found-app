@@ -52,8 +52,8 @@ export class SignalerComponent implements OnInit {
         (response) => console.log(response),
         (err) => console.log(err),
         () => {
-          this.router.navigate(['home']);
           this.toastService.openToast('Publication crée', 'success');
+          this.router.navigate(['home/publications']);
         }
       );
     } else {
@@ -77,7 +77,6 @@ export class SignalerComponent implements OnInit {
   }
   handleReaderLoaded(e) {
     const reader = e.target;
-    console.log('target', e.target);
     this.imageSrc = reader.result;
     this.signalForm.controls.imagePath.setValue(this.imageSrc);
   }

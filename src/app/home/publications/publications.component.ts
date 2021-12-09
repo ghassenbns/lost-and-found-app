@@ -1,25 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Post } from 'src/app/shared/post.model';
 import { PostService } from 'src/app/shared/post.service';
+import { ToastService } from 'src/app/shared/toast.service';
+import { UserAuthService } from 'src/app/shared/user-auth.service';
 
 @Component({
   selector: 'app-publications',
   templateUrl: './publications.component.html',
   styleUrls: ['./publications.component.scss'],
 })
-export class PublicationsComponent implements OnInit {
+export class PublicationsComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
   allPosts: Post[];
   activatedFilter: string = null;
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private userAuthService: UserAuthService,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit() {
-    this.postService.allPosts = JSON.parse(localStorage.getItem('posts'));
-    this.allPosts = this.postService.allPosts;
-    this.postService.filteredPosts.subscribe((res) => (this.allPosts = res));
+    this.userAuthService.retrievedUser = JSON.parse(
+      localStorage.getItem('user')
+    );
+  }
+  ionViewWillEnter() {
+    this.userAuthService.getAllPosts().subscribe(
+      (response: Post[]) => (this.allPosts = response),
+      () => {
+        this.toastService.openToast(
+          'Erreur de connection au serveur',
+          'danger'
+        );
+      },
+      () => {
+        this.postService.allPosts = this.allPosts;
+        this.subscription = this.postService.filteredPosts.subscribe(
+          (res) => (this.allPosts = res)
+        );
+      }
+    );
   }
   onFilter(type: string) {
-    console.log('filtered');
     this.activatedFilter = type;
     this.postService.onFilter(type);
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

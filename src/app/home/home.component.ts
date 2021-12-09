@@ -9,26 +9,9 @@ import { UserAuthService } from '../shared/user-auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private userAuthService: UserAuthService,
-    private toastService: ToastService
-  ) {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-    this.userAuthService.retrievedUser = JSON.parse(
-      localStorage.getItem('user')
-    );
-    this.userAuthService.getAllPosts().subscribe(
-      (response) => localStorage.setItem('posts', JSON.stringify(response)),
-      () => {
-        this.toastService.openToast(
-          'Erreur de connection au serveur',
-          'danger'
-        );
-      }
-    );
-  }
+  ngOnInit() {}
   onLogout() {
     localStorage.clear();
     this.router.navigate(['login']);
