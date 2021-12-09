@@ -13,6 +13,8 @@ export class PostService {
   onFilter(filterType: string) {
     this.filteredPosts.next(this.allPosts);
     if (filterType === 'location') {
+      console.log('true', this.userAuthService.retrievedUser.location);
+
       this.filteredPosts.next(
         this.allPosts.filter(
           (post) =>

@@ -36,3 +36,16 @@ ion-item {
   --background: transparent !important;
   color: #fff;
 }
+ion-toolbar {
+  --background: linear-gradient(
+    90deg,
+    rgba(53, 22, 70, 1) 0%,
+    rgba(253, 29, 29, 1) 73%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  color: white;
+  font-weight: bolder;
+}
+ion-header {
+  --background: transparent !important;
+}

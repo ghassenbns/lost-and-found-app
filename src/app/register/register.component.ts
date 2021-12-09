@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
   onRegister(registerForm: NgForm) {
+    console.log(registerForm.value);
     if (
       registerForm.valid &&
       registerForm.value.password === registerForm.value.verif

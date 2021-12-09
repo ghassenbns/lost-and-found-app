@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ErrorService } from '../shared/error.service';
 import { ToastService } from '../shared/toast.service';
 import { UserAuthService } from '../shared/user-auth.service';
-import { UserLogin } from '../shared/user.model';
+import { User, UserLogin } from '../shared/user.model';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
         loginForm.value.password
       );
       this.userService.login(user).subscribe(
-        (response) => localStorage.setItem('user', JSON.stringify(response)),
+        (response: User) => {
+          this.userService.retrievedUser = response;
+        },
         (error) => {
           this.toastService.openToast(
             this.errorService.loginErrors(error),

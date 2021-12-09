@@ -1,11 +1,18 @@
-<ion-header>
-  <ion-toolbar position="ion-text-center" color="warning">
-    <ion-title>Inscrivez - vous ! </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding has-header contentTop="200px">
-  <ion-img [src]="['./assets/logo.png']"></ion-img>
+  <div
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 60px;
+    "
+  >
+    <ion-img [src]="['./assets/logo.png']"></ion-img>
+  </div>
+  <ion-title class="ion-text-center" style="font-size: xx-large; color: white"
+    >Inscrivez-vous!</ion-title
+  >
+
   <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
     <ion-item>
       <ion-label position="floating">Email</ion-label>
@@ -37,7 +44,7 @@
       <ion-label position="floating"
         >Entrez votre numéro de téléphone</ion-label
       >
-      <ion-input name="phoneNumber" type="number" ngModel required></ion-input>
+      <ion-input name="phoneNumber" type="phone" ngModel required></ion-input>
     </ion-item>
 
     <ion-button

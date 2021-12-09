@@ -1,12 +1,17 @@
-<ion-content>
+<ion-content
+  ><br /><ion-title
+    class="ion-text-center"
+    style="font-size: xx-large; color: white"
+    >Signaler</ion-title
+  >
   <form [formGroup]="signalForm" (ngSubmit)="onSignal()">
-    <ion-item>
+    <ion-item expand="block">
       <ion-radio-group formControlName="type" required>
-        <ion-list-header>
+        <ion-title slot="start">
           <ion-label>J'ai</ion-label>
-        </ion-list-header>
+        </ion-title>
 
-        <ion-item>
+        <ion-item slot="end">
           <ion-label>Perdu</ion-label>
           <ion-radio slot="start" value="Perdu"></ion-radio>
         </ion-item>

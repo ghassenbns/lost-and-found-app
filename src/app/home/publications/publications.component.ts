@@ -14,19 +14,17 @@ import { UserAuthService } from 'src/app/shared/user-auth.service';
 export class PublicationsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   allPosts: Post[];
-  activatedFilter: string = null;
+  filterState: boolean;
+  activatedFilter: string;
   constructor(
     private postService: PostService,
     private userAuthService: UserAuthService,
     private toastService: ToastService
   ) {}
 
-  ngOnInit() {
-    this.userAuthService.retrievedUser = JSON.parse(
-      localStorage.getItem('user')
-    );
-  }
+  ngOnInit() {}
   ionViewWillEnter() {
+    this.activatedFilter = null;
     this.userAuthService.getAllPosts().subscribe(
       (response: Post[]) => (this.allPosts = response),
       () => {
@@ -44,7 +42,6 @@ export class PublicationsComponent implements OnInit, OnDestroy {
     );
   }
   onFilter(type: string) {
-    console.log(this.allPosts);
     this.activatedFilter = type;
     this.postService.onFilter(type);
   }
