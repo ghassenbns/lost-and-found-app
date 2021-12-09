@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PublicationsComponent } from './home/publications/publications.component';
 import { SignalerComponent } from './home/signaler/signaler.component';
 import { PublicationItemComponent } from './home/publications/publication-item/publication-item.component';
+import { PublicationViewComponent } from './home/publications/publication-view/publication-view.component';
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { PublicationItemComponent } from './home/publications/publication-item/p
     PublicationsComponent,
     SignalerComponent,
     PublicationItemComponent,
+    PublicationViewComponent,
   ],
   entryComponents: [],
   imports: [
@@ -34,7 +37,10 @@ import { PublicationItemComponent } from './home/publications/publication-item/p
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    CallNumber,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

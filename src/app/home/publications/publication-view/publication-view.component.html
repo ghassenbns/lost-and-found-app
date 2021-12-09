@@ -1,3 +1,51 @@
-<p>
-  publication-view works!
-</p>
+<br />
+<br />
+<br />
+<ion-content>
+  <ion-list>
+    <ion-item-divider>
+      <ion-label>Titre</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>{{ post.title }}</ion-label></ion-item
+    >
+
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Photo</ion-label>
+      </ion-item-divider>
+
+      <div style="display: flex; align-items: center; justify-content: center">
+        <ion-img
+          *ngIf="post.imagePath !== ''"
+          style="max-width: 300px; max-height: 300px"
+          [src]="post.imagePath"
+        ></ion-img>
+      </div>
+      <ion-item-divider>
+        <ion-label>Description</ion-label>
+      </ion-item-divider>
+      <ion-item>
+        <ion-label class="text">{{ post.description }}</ion-label></ion-item
+      >
+      <ion-item-divider>
+        <ion-label>Date </ion-label>
+      </ion-item-divider>
+      <ion-item>
+        <ion-label
+          >le {{ post.date | date: "dd/MM/yyyy" }} à :
+          {{ post.date | date: "HH:mm" }}</ion-label
+        ></ion-item
+      >
+    </ion-item-group>
+  </ion-list>
+  <ion-button
+    (click)="onCall()"
+    class="ion-margin-top"
+    type="submit"
+    expand="block"
+    color="warning"
+    ><ion-icon name="call-outline"></ion-icon>
+    Appeler l'annonceur
+  </ion-button>
+</ion-content>

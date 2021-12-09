@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/shared/post.model';
 import { PostService } from 'src/app/shared/post.service';
@@ -43,6 +44,7 @@ export class PublicationsComponent implements OnInit, OnDestroy {
     );
   }
   onFilter(type: string) {
+    console.log(this.allPosts);
     this.activatedFilter = type;
     this.postService.onFilter(type);
   }

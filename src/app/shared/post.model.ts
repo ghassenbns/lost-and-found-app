@@ -6,6 +6,7 @@ export class Post {
   public location: string;
   public title: string;
   public type: string;
+  public phoneNumber: string;
 
   constructor(
     date: string,
@@ -14,7 +15,8 @@ export class Post {
     imagePath: string,
     location: string,
     title: string,
-    type: string
+    type: string,
+    phoneNumber: string
   ) {
     this.date = date;
     this.location = location;
@@ -23,5 +25,6 @@ export class Post {
     this.imagePath = imagePath;
     this.title = title;
     this.type = type;
+    this.phoneNumber = phoneNumber;
   }
 }

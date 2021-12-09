@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card (click)="onNavigate(post)">
   <ion-card-header>
     <p>
       <ion-chip color="danger" *ngIf="post.type === 'Perdu'">
@@ -23,7 +23,7 @@
   </div>
   <ion-card-content> {{ post.description }} </ion-card-content>
   <ion-item>
-    <ion-icon name="calendar-outline"></ion-icon>
+    <ion-icon name="calendar-outline" color="white"></ion-icon>
     <p *ngIf="post.type === 'Perdu'">
       Perdu le {{ post.date | date: "dd/MM/yyyy" }} à :
       {{ post.date | date: "HH:mm" }}

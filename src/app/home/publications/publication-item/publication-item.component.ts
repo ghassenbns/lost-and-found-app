@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/shared/post.model';
 
 @Component({
@@ -9,7 +10,11 @@ import { Post } from 'src/app/shared/post.model';
 export class PublicationItemComponent implements OnInit {
   @Input() post: Post;
   @Input() index: number;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+  onNavigate(post) {
+    console.log(post);
+    this.router.navigate(['home/' + this.post.idPost]);
+  }
 }

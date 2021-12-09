@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { PublicationViewComponent } from './home/publications/publication-view/publication-view.component';
 import { PublicationsComponent } from './home/publications/publications.component';
 import { SignalerComponent } from './home/signaler/signaler.component';
 import { LoginComponent } from './login/login.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
       {
         path: 'signaler',
         component: SignalerComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: ':id',
+        component: PublicationViewComponent,
         pathMatch: 'full',
       },
     ],
